@@ -1,0 +1,2 @@
+class TesteMaterial < ApplicationRecord
+end
