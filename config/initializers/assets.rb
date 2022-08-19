@@ -20,4 +20,9 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_ba
 
 # /lib/assets
 Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-2.css
-                                                  custom.js custom.css )
+                                                  custom.js custom.css
+                                                  img.jpg 
+                                                  surface-fix.js surface-fix.css
+                                                  navbar.css)
+# /vendor/assets
+Rails.application.config.assets.precompile += %w( jquery2.2.4/dist/jquery.js )

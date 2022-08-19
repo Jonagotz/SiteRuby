@@ -7,26 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Modulo04</title>
+    <title>User interface</title>
 
-      <!-- Bootstrap v4.3.1 -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 4.5.0 -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress (em lib nprogress.css) -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- jQuery custom content scroller (em lib jquery.mCustomScrollbar.min.css) -->
-    <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-
-    <!-- Custom Theme Style (em lib custom.min.css) -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
-  
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "users_backoffice" %>
+     
 </head>
 
   <body class="nav-md">
@@ -43,7 +31,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <%= image_tag "img.jpg", alt:"...", class:"img-circle profile_img" %> 
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -187,16 +175,16 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/img.jpg" alt="">John Doe
+                      <div class="profile_pic">
+                        <%= image_tag "img.jpg", alt:"..", class:"img-circle profile_img" %> 
+                        
+                      </div><%= current_user.email %>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                        <a class="dropdown-item"  href="javascript:;">
-                          <span class="badge bg-red pull-right">50%</span>
-                          <span>Settings</span>
-                        </a>
-                    <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="login.html"></a>
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        <i class="fa fa-sign-out pull-right"></i> Sair
+                      <% end %>
                     </div>
                   </li>
   
@@ -208,59 +196,63 @@
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                       <li class="nav-item">
                         <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <div class="text-center">
-                          <a class="dropdown-item">
-                            <strong>See All Alerts</strong>
-                            <i class="fa fa-angle-right"></i>
-                          </a>
+                        <span>
+                        <div class="profile_pic">
+                          <%= image_tag "img.jpg", alt:"Profile Image", class:"img-circle profile_img" %> 
                         </div>
+                        </span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                        <div class="profile_pic">
+                          <%= image_tag "img.jpg", alt:"Profile Image", class:"img-circle profile_img" %> 
+                        </div>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                        <div class="profile_pic">
+                          <%= image_tag "img.jpg", alt:"Profile Image", class:"img-circle profile_img" %> 
+                        </div>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <div class="profile_pic">
+                            <%= image_tag "img.jpg", alt:"Profile Image", class:"img-circle profile_img" %> 
+                          </div>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
                       </li>
                     </ul>
                   </li>
@@ -294,19 +286,6 @@
       </div>
     </div>
     
-    <%= javascript_importmap_tags "application" %>
-    <!-- jQuery v2.2.4 -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap v4.3.1-->
-   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- FastClick (em lib/assets/js/fastclick.js) -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress (em lib/assets/js/nprogress.js) -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- jQuery custom content scroller v3.1.13 -->
-    <script src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!-- Custom Theme Scripts (em lib/assets/js/custom.min.js (em lib/assets/js/custom.min.js) -->
-    <script src="../build/js/custom.min.js"></script>
+    <%= javascript_include_tag "users_backoffice" %>
   </body>
 </html>

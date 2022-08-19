@@ -43,6 +43,14 @@ gem 'scrollbar-rails'
 
 gem 'coffee-rails', '~> 5.0'
 
+gem "faker"
+
+gem "awesome_print"
+
+gem "kaminari"
+
+gem "kaminari-i18n"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
