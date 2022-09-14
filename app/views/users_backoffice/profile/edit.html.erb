@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Dados do Perfil</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <% if @user.errors.any? %>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li> <%= message %> </li>
+                  <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <%= form_with(url: users_backoffice_profile_path, model: @user , local: true, class:"form-horizontal form-label-left") do |form| %>
+
+          <div class="form-group">
+              <%= form.label :first_name, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= form.text_field :first_name, class:"form-control col-md-7 col-xs-12" %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= form.label :last_name, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= form.text_field :last_name, class:"form-control col-md-7 col-xs-12" %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= form.label :email, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= form.text_field :email, 
+                        class:"form-control col-md-7 col-xs-12", 
+                        readonly: true  %>
+              </div>
+          </div>
+
+          <%= form.fields_for :user_profile do |profile_form|  %>
+            <div class="form-group">
+                <%= profile_form.label :addres, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <%= profile_form.text_field :addres, 
+                            class:"form-control col-md-7 col-xs-12" %>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <%= profile_form.label :gender, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div id="gender" class="btn-group" data-toggle="buttons">
+                  <label class="btn <%= gender_select(@user, 'M') %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <%= profile_form.radio_button :gender, "M", "data-parsley-multiple":"gender"%> &nbsp; Masculino &nbsp;
+                  </label>
+                  <label class="btn <%= gender_select(@user, 'F') %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <%= profile_form.radio_button :gender, "F", "data-parsley-multiple":"gender"%> &nbsp; Feminino &nbsp;
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <%= javascript_tag do %>
+               var labels = document.querySelectorAll('div#gender label');
+
+               labels.forEach((label) => {
+                 label.addEventListener('click', () => {
+                   label.classList.remove('btn-default');
+                   label.classList.add('btn-primary');
+
+                   labels.forEach((lbl) => {
+                     if(lbl !== label){
+                        lbl.classList.remove('btn-primary');
+                        lbl.classList.add('btn-default');
+                     };
+                   });
+                 });
+               });
+            <% end %>
+
+            <div class="form-group">
+                <%= profile_form.label :birthdate, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <%= profile_form.text_field :birthdate, 
+                                              value: (l(@user.user_profile.birthdate) unless @user.user_profile.birthdate.blank?),
+                                              class:"form-control col-md-7 col-xs-12 datepicker" %>
+                </div>
+            </div>
+          <% end %>
+          
+          <div class="form-group">
+              <%= form.label :password, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= form.password_field :password, 
+                        class:"form-control col-md-7 col-xs-12" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <%= form.label :password_confirmation, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= form.password_field :password_confirmation, 
+                        class:"form-control col-md-7 col-xs-12" %>
+              </div>
+          </div>
+
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

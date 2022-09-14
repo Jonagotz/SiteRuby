@@ -5,5 +5,6 @@
  *= require metismenu/dist/metisMenu
  *= require startbootstrap-sb-admin-2/js/sb-admin-2
  *= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
+ //= require cocoon
  */
 

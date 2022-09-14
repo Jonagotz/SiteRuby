@@ -1,2 +1,0 @@
-class TesteMaterial < ApplicationRecord
-end

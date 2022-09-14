@@ -1,0 +1,7 @@
+'pt-BR':
+  messages:
+    listing: Listando %{model}
+    editing: Editando %{model}
+    new: Novo %{model}
+    new_head: Cadastrando %{model}
+    confirm_with: Você deseja realmente excluir [%{item}]?

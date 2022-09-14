@@ -23,3 +23,31 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+
+<div>
+  <div class="login_wrapper">
+    <div class="animate form login_form">
+      <section class="login_content">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.hidden_field :reset_password_token %>
+            <h1>Altere sua senha</h1>
+              <div>
+                <%= f.password_field :password, placeholder:"Senha",class:"form-control" %>
+              </div>
+
+              <div>
+                <%= f.password_field :password_confirmation, placeholder:"Confirmação da Senha", class:"form-control" %>
+              </div>
+
+              <div>
+                <%= f.submit "Alterar senha", class:"btn btn-default submit", style:"float: none; margin-left: 0px; width: 70%;" %>
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="separator"></div>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>

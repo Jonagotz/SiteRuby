@@ -42,7 +42,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link">
-                    <%= link_to admins_backoffice_welcome_index_path do %>
+                    <%= link_to admins_backoffice_welcome_index_path, style:"color: white;" do %>
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
                 <% end %>
@@ -51,11 +51,29 @@
             <!-- Nav Item - Admins -->
             <li class="nav-item">
                 <a class="nav-link">
-                    <%= link_to admins_backoffice_admins_path do%>
+                    <%= link_to admins_backoffice_admins_path, style:"color: white;" do%>
                         <i class="fas fa-users fa-table"></i>
                         <span>Admins</span></a>
                     <% end %>
+                
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link style="text-align: center">
+                    <%= link_to admins_backoffice_subjects_path, style:"color: white;" do%>
+                        <i class="fa-solid fa-book"></i>
+                        <span>Assuntos</span></a>
+                    <% end %>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link">
+                    <%= link_to admins_backoffice_questions_path, style:"color: white;" do%>
+                        <i class="fa-solid fa-question"></i>
+                        <span>Perguntas</span></a>
+                    <% end %>
+            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -112,8 +130,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img  class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->

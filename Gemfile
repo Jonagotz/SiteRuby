@@ -49,7 +49,13 @@ gem "awesome_print"
 
 gem "kaminari"
 
+gem 'bootstrap4-kaminari-views'
+
+gem 'bootstrap_form'
+
 gem "kaminari-i18n"
+
+gem "cocoon"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -75,6 +81,7 @@ gem "bootsnap", require: false
 gem 'devise'
 
 gem 'bootstrap-sass', '3.3.6'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

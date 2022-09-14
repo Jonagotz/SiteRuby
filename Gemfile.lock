@@ -78,6 +78,12 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap4-kaminari-views (1.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
+    bootstrap_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     builder (3.2.4)
     capybara (3.37.1)
       addressable
@@ -89,6 +95,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    cocoon (1.2.15)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -289,7 +296,10 @@ DEPENDENCIES
   awesome_print
   bootsnap
   bootstrap-sass (= 3.3.6)
+  bootstrap4-kaminari-views
+  bootstrap_form
   capybara
+  cocoon
   coffee-rails (~> 5.0)
   debug
   devise
